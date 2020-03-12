@@ -16,9 +16,10 @@ public class BankAccount {
 	}
 
 	public BankAccount(double balance, double interestRate, java.util.Date accountOpenedOn) {
-		this.balance = balance;
-		this.interestRate = interestRate;
-		this.dateOpened = accountOpenedOn;
+		this(0, balance, interestRate, accountOpenedOn);
+//		this.balance = balance;
+//		this.interestRate = interestRate;
+//		this.dateOpened = accountOpenedOn;
 
 	}
 
@@ -109,11 +110,24 @@ public class BankAccount {
 		return newStringFile;
 	}
 	
-
-	public static double futureValue(double presentValue, double interestRate, int term) {
-		double futureValue = presentValue * (Math.pow(1 + presentValue, term));
+	public  double futureValue(int years) {
+		double formula = Math.pow(1 + this.interestRate, years);
+		double futureValue = balance * formula;
 		return futureValue;
+		
 	}
+	
+	public double futureValue() {
+		return futureValue(5);
+	}
+	
+
+//	public static double futureValue(double presentValue, double interestRate, int term) {
+//		double futureValue = presentValue * (Math.pow(1 + presentValue, term));
+//		return futureValue;
+//	}
+	
+	
 
 
 // begin getters and setters

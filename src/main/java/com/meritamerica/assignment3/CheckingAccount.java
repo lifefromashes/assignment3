@@ -1,6 +1,7 @@
 package com.meritamerica.assignment3;
 
 import java.text.ParseException;
+import java.util.Date;
 
 public class CheckingAccount extends BankAccount {
 	
@@ -10,8 +11,12 @@ public class CheckingAccount extends BankAccount {
 		super(openingBalance, .0001);
 	}
 	
+	public CheckingAccount(long accountNumber, double balance, double interestRate, Date accountOpenedOn) {
+		super(accountNumber, balance, interestRate, accountOpenedOn);
+	}
+
 	public CheckingAccount(BankAccount bankAccount) {
-		super(bankAccount.getAccountNumber(), bankAccount.getBalance(), bankAccount.getInterestRate(), bankAccount.getDateOpened());
+		super(bankAccount.getAccountNumber(), bankAccount.getBalance(), bankAccount.getInterestRate(), bankAccount.getOpenedOn());
 	}
 
 	public static CheckingAccount readFromString(String accountData) throws ParseException {

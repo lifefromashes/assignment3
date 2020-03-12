@@ -6,7 +6,6 @@ import java.util.Date;
 public class CDAccount extends BankAccount {
 
 	private int term;
-	private Date dateOpened;
 	
 	public CDAccount(BankAccount bankAccount) {
 		super(bankAccount.getAccountNumber(), bankAccount.getBalance(), bankAccount.getInterestRate(), bankAccount.getOpenedOn());
@@ -23,8 +22,8 @@ public class CDAccount extends BankAccount {
 	
 	@Override
 	public String writeToString() {
-		String accountInfo = "";
-		accountInfo += super.writeToString() + this.term;
+		String accountInfo = super.writeToString();
+		accountInfo += ", " + this.term;
 		return accountInfo;
 	}
 	
